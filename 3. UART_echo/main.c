@@ -19,7 +19,7 @@
 void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk,  uint32_t BaudRate);
 
 // Initialization of UART module 
-void uar2_tx_rx_init(void)
+void uart2_init(void)
 {
 	// Enable clock access to GPIOA
 	RCC->AHB1ENR |= (1U<<0);
@@ -91,7 +91,7 @@ int __io_getchar(void){
 
 int main(void)
 {
-	uar2_tx_rx_init();
+	uart2_init();
 	char message[40];
 	while(1)
 	{
@@ -99,3 +99,4 @@ int main(void)
 		printf("%s", message);
 	}
 }
+
